@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
-    <title>Hero Section - Simphiwe Mtetwa</title>
+    <title>Africa's Leading CSI News | Simphiwe Mtetwa</title>
     
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ============================================
+           SIMPHIWE MTETWA - PREMIUM CSI PLATFORM
+           Design System: Finovate-Inspired
+           Color Palette: Professional Green + Lime Accent
+           ============================================ */
+
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +35,9 @@
             --light-gray: #f5f5f5;
             --medium-gray: #e0e0e0;
             --white: #ffffff;
+            --accent-teal: #4e676b;
 
+            /* Vamtam Icon Variables */
             --vamtam-icon-nav: '\e906';
             --vamtam-icon-close: '\e90c';
             --vamtam-icon-search: '\e902';
@@ -74,9 +85,9 @@
            ============================================ */
 
         .top-nav {
-            background: rgba(255, 255, 255, 0);
-            backdrop-filter: blur(0px);
-            -webkit-backdrop-filter: blur(0px);
+            background: transparent;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
             padding: 30px 0;
             position: fixed;
             width: 100%;
@@ -84,26 +95,32 @@
             left: 0;
             z-index: 1000;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0);
+            border-bottom: 1px solid transparent;
         }
 
         .top-nav.scrolled {
-            background: rgba(26, 77, 61, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             padding: 18px 0;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .nav-container {
             max-width: none;
             margin: 0;
-            padding: 0 60px;
+            padding: 0 18vw 0 18vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 25px;
+            }
         }
 
         .nav-right-wrap {
@@ -117,10 +134,11 @@
             align-items: center;
             gap: 12px;
             text-decoration: none;
+            margin-left: -10%;
         }
 
         .logo img {
-            height: 65px;
+            height: 85px;
             width: auto;
             transition: transform 0.3s;
         }
@@ -136,11 +154,11 @@
             align-items: center;
         }
 
-        .main-nav > li {
+        .main-nav>li {
             position: relative;
         }
 
-        .main-nav > li > a {
+        .main-nav>li>a {
             text-decoration: none;
             color: #ffffff;
             font-size: 15px;
@@ -155,16 +173,22 @@
             gap: 5px;
         }
 
-        .main-nav > li > a:hover {
+        .main-nav>li>a:hover {
             color: var(--lime-green);
         }
 
-        .top-nav.scrolled .main-nav > li > a {
-            color: #ffffff;
+        .top-nav.scrolled .main-nav>li>a {
+            color: var(--dark-text);
+        }
+
+        .top-nav.scrolled .nav-icon,
+        .top-nav.scrolled #mobileToggle,
+        .top-nav.scrolled .elementor-icon {
+            color: var(--dark-text);
         }
 
         /* Premium Mega Dropdown */
-        .main-nav > li {
+        .main-nav>li {
             position: static;
         }
 
@@ -191,7 +215,7 @@
             z-index: 999;
         }
 
-        .main-nav > li:hover .dropdown {
+        .main-nav>li:hover .dropdown {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
@@ -219,6 +243,10 @@
             padding-left: 10px;
         }
 
+        /* Elementor Icon Widget Styles */
+        .elementor-widget-icon { display: inline-block; }
+        .elementor-icon-wrapper { display: flex; justify-content: center; }
+        
         .elementor-icon {
             display: inline-block;
             line-height: 1;
@@ -246,6 +274,10 @@
         .elementor-view-stacked .elementor-icon:hover {
             background-color: var(--lime-green);
             color: var(--primary-green);
+        }
+
+        #mobileToggle {
+            background-color: transparent;
         }
 
         .nav-actions {
@@ -281,12 +313,13 @@
         }
 
         /* ============================================
-           HERO SECTION - BAIN-INSPIRED ENHANCEMENTS
+           HERO SECTION - PORTFOLIO SLIDER STYLE
            ============================================ */
 
         .hero-section {
             position: relative;
             height: 100vh;
+            min-height: 600px;
             overflow: hidden;
             background: #000;
         }
@@ -318,12 +351,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center right;
-            /* Ken Burns Effect */
-            transition: transform 6s ease;
-        }
-
-        .hero-slide.active img {
-            transform: scale(1.1);
         }
 
         .hero-overlay {
@@ -346,15 +373,19 @@
             width: 100%;
         }
 
-        .hero-tag {
-            display: inline-block;
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--lime-green);
+        .hero-title {
+            margin-bottom: 0;
+        }
+
+        .hero-kicker {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(14px, 1.5vw, 18px);
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-family: 'Inter', sans-serif;
+            margin-bottom: 15px;
         }
 
         .hero-title {
@@ -385,6 +416,11 @@
             opacity: 0.9;
         }
 
+        .color-accent-4 {
+            color: var(--lime-green);
+            display: inline-block;
+        }
+
         /* Slide 3 Specific: Solid Black */
         .hero-slide.slide-dark {
             background: #0a0a0a;
@@ -394,8 +430,123 @@
             background: none;
         }
 
+        .hero-tag {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--lime-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-slide .btn-line {
+            margin-top: 35px;
+        }
+
         /* ============================================
-           BAIN-STYLE TABS WITH PROGRESS BARS
+           LINE BUTTON WITH ARROW ON HOVER
+           ============================================ */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 34px;
+            border-radius: 30px;
+            border: none;
+            font-size: 14.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 77, 62, 0.3);
+        }
+
+        .btn-lime {
+            background: var(--lime-green);
+            color: var(--primary-green);
+        }
+
+        .btn-lime:hover {
+            background: var(--lime-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(196, 216, 46, 0.4);
+        }
+
+        /* LINE BUTTON - Text with underline + arrow reveal */
+        .btn-line {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0;
+            background: transparent;
+            color: var(--white);
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        /* The underline line */
+        .btn-line::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--lime-green);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Arrow icon (hidden by default) */
+        .btn-line .arrow-icon {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: var(--lime-green);
+        }
+
+        /* Hover state */
+        .btn-line:hover {
+            color: var(--lime-green);
+        }
+
+        .btn-line:hover::after {
+            width: 100%;
+            background: var(--lime-green);
+        }
+
+        .btn-line:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ============================================
+           HERO TABS - SWAPPED LAYOUT
+           Progress Bar ON TOP, Text AT BOTTOM
            ============================================ */
 
         .hero-tabs {
@@ -411,7 +562,8 @@
         .hero-tab {
             flex: 1;
             cursor: pointer;
-            padding-bottom: 15px;
+            padding-top: 15px;
+            padding-bottom: 8px;
             position: relative;
             color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
@@ -419,6 +571,10 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 12px;
         }
 
         .hero-tab.active {
@@ -428,7 +584,7 @@
         .hero-tab::before {
             content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
             height: 2px;
@@ -437,17 +593,14 @@
 
         .tab-progress {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 0%;
             height: 2px;
             background: var(--lime-green);
             transition: width 0.1s linear;
+            z-index: 2;
         }
-
-        /* ============================================
-           SCROLL INDICATOR
-           ============================================ */
 
         .hero__scroll-indicator {
             position: absolute;
@@ -482,61 +635,169 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(5px);}
-            60% {transform: translateY(3px);}
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(5px); }
+            60% { transform: translateY(3px); }
         }
 
-        /* Button Styles */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 34px;
-            border-radius: 30px;
-            border: none;
-            font-size: 14.5px;
-            font-weight: 600;
+        /* Ken Burns Effect for Hero Images */
+        .hero-slide img {
+            transition: transform 6s ease;
+        }
+
+        .hero-slide.active img {
+            transform: scale(1.1);
+        }
+
+        /* Side Panel Drawer & Backdrop */
+        .side-panel-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .side-panel-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .side-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 450px;
+            height: 100%;
+            background: var(--white);
+            z-index: 2001;
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.1);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .side-panel.active {
+            transform: translateX(0);
+        }
+
+        .side-panel-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: var(--primary-green);
+            font-size: 24px;
             cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            border-radius: 50%;
             transition: all 0.3s;
+        }
+
+        .side-panel-close:hover {
+            background: var(--lime-green);
+            transform: rotate(90deg);
+        }
+
+        .side-panel-logo {
+            margin-bottom: 40px;
+        }
+
+        .side-panel-logo img {
+            height: 100px;
+            width: auto;
+            transition: transform 0.3s;
+            animation: pulseFade 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseFade {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .side-panel-content h3 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+
+        .side-panel-contact {
+            margin-top: 30px;
+        }
+
+        .side-panel-contact-item {
+            margin-bottom: 25px;
+        }
+
+        .side-panel-contact-item h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-teal);
+            margin-bottom: 8px;
+        }
+
+        .side-panel-contact-item p {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .side-panel-cta {
+            margin-top: auto;
+            padding-top: 40px;
+        }
+
+        .side-panel-cta .btn {
+            width: 100%;
+            padding: 18px;
+            justify-content: center;
+        }
+
+        .side-panel-nav {
+            margin-top: 40px;
+            border-top: 1px solid var(--medium-gray);
+            padding-top: 30px;
+        }
+
+        .side-panel-nav ul {
+            list-style: none;
+        }
+
+        .side-panel-nav li {
+            margin-bottom: 15px;
+        }
+
+        .side-panel-nav a {
+            color: var(--dark-text);
             text-decoration: none;
-            font-family: 'DM Sans', sans-serif;
-            letter-spacing: 0.3px;
-            margin-top: 35px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s;
         }
 
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+        .side-panel-nav a:hover {
+            color: var(--primary-green);
         }
 
-        .btn-outline:hover {
-            border-color: var(--lime-green);
-            color: var(--lime-green);
-        }
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fadeIn {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Responsive Design */
         @media (max-width: 1024px) {
             .main-nav {
                 display: none;
@@ -544,10 +805,6 @@
 
             .mobile-toggle {
                 display: flex;
-            }
-
-            .mobile-toggle span {
-                background: white;
             }
 
             .hero-title {
@@ -601,60 +858,70 @@
             }
         }
     </style>
+<base target="_blank">
 </head>
-
 <body>
 
     <!-- ============================================
-     NAVIGATION HEADER
-     ============================================ -->
+         NAVIGATION HEADER
+         ============================================ -->
     <nav class="top-nav" id="mainNav">
         <div class="nav-container">
-            <a href="#" class="logo">
+            <a href="javascript:void(0)" onclick="showPage('home')" class="logo">
                 <img src="https://www.image2url.com/r2/default/images/1777216092994-c7e885df-05b1-48e6-b802-69a615cb8fff.png"
-                    alt="Simphiwe Mtetwa Logo">
+                    alt="Simphiwe Mtetwa Logo" class="logo-white">
+                <img src="https://www.image2url.com/r2/default/images/1777649055436-1057d549-9fe6-4e04-b970-568610a4c0a0.png"
+                    alt="Simphiwe Mtetwa Logo" class="logo-black" style="display: none;">
             </a>
 
             <div class="nav-right-wrap">
                 <ul class="main-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('about')">About</a></li>
                     <li>
-                        <a href="#">Think Tank <i class="vamtamtheme- vamtam-theme-arrow-dawn" style="font-size: 12px; margin-left: 5px;"></i></a>
+                        <a href="https://simphiwemtetwa.africa/category/insight/">Think Tank <i
+                                class="vamtamtheme- vamtam-theme-arrow-dawn"
+                                style="font-size: 12px; margin-left: 5px;"></i></a>
                         <ul class="dropdown">
-                            <li><a href="#">Environmental Resources</a></li>
-                            <li><a href="#">Research</a></li>
-                            <li><a href="#">Health & Wellness</a></li>
-                            <li><a href="#">Nonprofit</a></li>
-                            <li><a href="#">Sustainability</a></li>
-                            <li><a href="#">Philanthropy</a></li>
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Employee Engagement</a></li>
-                            <li><a href="#">Education</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/environmental-resources/">Environmental
+                                    Resources</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/research/">Research</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/health-wellness/">Health & Wellness</a>
+                            </li>
+                            <li><a href="https://simphiwemtetwa.africa/category/nonprofit/">Nonprofit</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/sustainability/">Sustainability</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/philanthropy/">Philanthropy</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/technology/">Technology</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/employee-engagement/">Employee
+                                    Engagement</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/category/education/">Education</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#">Resources <i class="vamtamtheme- vamtam-theme-arrow-dawn" style="font-size: 12px; margin-left: 5px;"></i></a>
+                        <a href="#">Resources <i class="vamtamtheme- vamtam-theme-arrow-dawn"
+                                style="font-size: 12px; margin-left: 5px;"></i></a>
                         <ul class="dropdown">
-                            <li><a href="#">Podcast</a></li>
-                            <li><a href="#">Changemakers Library</a></li>
-                            <li><a href="#">Matter Magazine</a></li>
-                            <li><a href="#">Legacy Conference</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/podcast/">Podcast</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/changemakers-library/">Changemakers Library</a>
+                            </li>
+                            <li><a href="https://simphiwemtetwa.africa/matter-magazine/">Matter Magazine</a></li>
+                            <li><a href="https://simphiwemtetwa.africa/legacy-conference/">Legacy Conference</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Store</a></li>
-                    <li><a href="#">Podcast</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('store')">Store</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('podcast')">Podcast</a></li>
+                    <li><a href="javascript:void(0)" onclick="showPage('contact')">Contact</a></li>
                 </ul>
 
                 <div class="nav-actions">
                     <i class="fas fa-search nav-icon"></i>
 
                     <div class="vamtam-has-theme-widget-styles elementor-element elementor-element-051dd67 elementor-view-stacked elementor-shape-circle elementor-widget elementor-widget-icon"
-                        data-id="051dd67" data-element_type="widget" data-widget_type="icon.default">
+                        data-id="051dd67" data-element_type="widget" data-element_type="widget"
+                        data-widget_type="icon.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-icon-wrapper">
-                                <a class="elementor-icon" href="#">
+                                <a class="elementor-icon" href="javascript:void(0)" id="mobileToggle">
                                     <i aria-hidden="true" class="vamtamtheme- vamtam-theme-nav"></i>
                                 </a>
                             </div>
@@ -665,17 +932,67 @@
         </div>
     </nav>
 
+    <!-- Side Panel Drawer & Backdrop -->
+    <div class="side-panel-backdrop" id="sidePanelBackdrop"></div>
+    <div class="side-panel" id="sidePanel">
+        <div class="side-panel-close" id="closeSidePanel">
+            <i class="vamtamtheme- vamtam-theme-close"></i>
+        </div>
+
+        <div class="side-panel-logo">
+            <img src="https://simphiwemtetwa.africa/wp-content/uploads/2024/04/Simphiwe-6.png"
+                alt="Simphiwe Mtetwa Logo">
+        </div>
+
+        <div class="side-panel-content">
+            <h3>Get In Touch</h3>
+            <p>Connect with Africa's leading source for Corporate Social Investment intelligence and impact.</p>
+
+            <div class="side-panel-contact">
+                <div class="side-panel-contact-item">
+                    <h4>Email Address</h4>
+                    <p>info@simphiwemtetwa.africa</p>
+                </div>
+                <div class="side-panel-contact-item">
+                    <h4>Office Location</h4>
+                    <p>Johannesburg, South Africa<br>Pan-African Reach</p>
+                </div>
+                <div class="side-panel-contact-item">
+                    <h4>Social Media</h4>
+                    <p>@csrnews_sa</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-panel-nav">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="showPage('about')">Who We Are</a></li>
+                <li><a href="https://simphiwemtetwa.africa/category/insight/">Think Tank</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('podcast')">Podcast Series</a></li>
+                <li><a href="javascript:void(0)" onclick="showPage('store')">Official Store</a></li>
+            </ul>
+        </div>
+
+        <div class="side-panel-cta">
+            <a href="https://simphiwemtetwa.africa/contact-2/" class="btn btn-primary">Book a Consultation <i
+                    class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
 
     <!-- ============================================
-     HERO SECTION - BAIN-STYLE ENHANCED SLIDER
-     ============================================ -->
+         HERO SECTION - FEATURED ARTICLE SLIDER
+         ============================================ -->
     <section class="hero-section">
         <div class="hero-slider">
             <!-- Slide 1 -->
             <div class="hero-slide active" rtrvr-ls="Slide 1" rtrvr-ro="0" tabindex="0">
                 <picture>
-                    <source srcset="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg" media="(max-width: 768px)">
-                    <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg" alt="Inequality">
+                    <source
+                        srcset="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg"
+                        media="(max-width: 768px)">
+                    <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg"
+                        alt="Inequality">
                 </picture>
                 <div class="hero-overlay">
                     <div class="hero-content" style="padding-left: 18vw;">
@@ -688,7 +1005,10 @@
                             Continue to uphold the<br>
                             <span class="hero-deal">Masters' Deal</span>
                         </h1>
-                        <a href="#" class="btn btn-outline">Read more</a>
+                        <a href="/insights/new-era-in-tech-investing-starts-now/" class="btn-line">
+                            Read more
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -696,8 +1016,11 @@
             <!-- Slide 2 -->
             <div class="hero-slide" rtrvr-ls="Slide 2" rtrvr-ro="1" tabindex="-1">
                 <picture>
-                    <source srcset="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg" media="(max-width: 768px)">
-                    <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg" alt="Vision 2052">
+                    <source
+                        srcset="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg"
+                        media="(max-width: 768px)">
+                    <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg"
+                        alt="Vision 2052">
                 </picture>
                 <div class="hero-overlay">
                     <div class="hero-content" style="padding-left: 18vw;">
@@ -707,7 +1030,10 @@
                             <span class="hero-sub">Vision in</span><br>
                             <span class="hero-deal">Motion</span>
                         </h1>
-                        <a href="#" class="btn btn-outline">Read the guide</a>
+                        <a href="/insights/topics/agentic-ai/" class="btn-line">
+                            Read the guide
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -722,14 +1048,18 @@
                             <span class="hero-sub">South Africans</span><br>
                             <span class="hero-deal">Half A Trillion Rand</span>
                         </h1>
-                        <a href="#" class="btn btn-outline">Read more</a>
+                        <a href="/insights/cfos-funded-ai-revolution-now-they-are-joining-it/" class="btn-line">
+                            Read more
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 4 -->
             <div class="hero-slide" rtrvr-ls="Slide 4" rtrvr-ro="3" tabindex="-1">
-                <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-11-scaled.jpg" alt="Podcast">
+                <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-11-scaled.jpg"
+                    alt="Podcast">
                 <div class="hero-overlay">
                     <div class="hero-content" style="padding-left: 18vw;">
                         <span class="hero-tag">The Podcast</span>
@@ -738,127 +1068,172 @@
                             <span class="hero-sub">Shape The</span><br>
                             <span class="hero-deal">Future of CSI</span>
                         </h1>
-                        <a href="#" class="btn btn-outline">Listen Now</a>
+                        <a href="javascript:void(0)" onclick="showPage('podcast')" class="btn-line">
+                            Listen Now
+                            <i class="fas fa-arrow-right arrow-icon"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bain-Style Tabs with Progress Bars -->
+        <!-- HERO TABS - SWAPPED LAYOUT -->
         <div class="hero-tabs">
             <div class="hero-tab active" data-slide="0">
-                Social Justice
                 <div class="tab-progress"></div>
+                Social Justice
             </div>
             <div class="hero-tab" data-slide="1">
-                Vision 2052
                 <div class="tab-progress"></div>
+                Vision 2052
             </div>
             <div class="hero-tab" data-slide="2">
-                Economic Impact
                 <div class="tab-progress"></div>
+                Economic Impact
             </div>
             <div class="hero-tab" data-slide="3">
-                The Podcast
                 <div class="tab-progress"></div>
+                The Podcast
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
         <div class="hero__scroll-indicator" id="scrollToNextSection">
             <span class="hero__scroll-text">Scroll</span>
             <i class="fas fa-chevron-down icon-chevron-down"></i>
         </div>
     </section>
 
+    <!-- Placeholder Section for Scrolling -->
+    <section style="height: 100vh; background: var(--light-gray); display: flex; align-items: center; justify-content: center;">
+        <h2 style="font-family: var(--font-main); color: var(--dark-text); font-size: 2rem;">Content Section</h2>
+    </section>
 
     <!-- ============================================
-     HERO SLIDER SCRIPT (Bain-style Enhanced)
-     ============================================ -->
+         JAVASCRIPT FUNCTIONALITY
+         ============================================ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.hero-slide');
-            const tabs = document.querySelectorAll('.hero-tab');
-            const progressBars = document.querySelectorAll('.tab-progress');
-            
-            let currentSlide = 0;
-            const totalSlides = slides.length;
-            const duration = 6000; // 6 seconds per slide
-            let startTime;
-            let slideInterval;
-            let progressInterval;
+        // Navigation scroll effect
+        window.addEventListener('scroll', function () {
+            const nav = document.getElementById('mainNav');
+            const logoWhite = document.querySelector('.logo-white');
+            const logoBlack = document.querySelector('.logo-black');
 
-            function startSlider() {
-                startTime = Date.now();
-                updateProgress();
-                slideInterval = setInterval(nextSlide, duration);
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+                logoWhite.style.display = 'none';
+                logoBlack.style.display = 'block';
+            } else {
+                nav.classList.remove('scrolled');
+                logoWhite.style.display = 'block';
+                logoBlack.style.display = 'none';
             }
+        });
 
-            function updateProgress() {
-                if (progressInterval) clearInterval(progressInterval);
-                
-                progressInterval = setInterval(() => {
-                    const elapsed = Date.now() - startTime;
-                    const progress = Math.min((elapsed / duration) * 100, 100);
-                    
-                    if (progressBars[currentSlide]) {
-                        progressBars[currentSlide].style.width = progress + '%';
-                    }
-                }, 50);
-            }
+        // Hero Slider Functionality
+        const slides = document.querySelectorAll('.hero-slide');
+        const tabs = document.querySelectorAll('.hero-tab');
+        const progressBars = document.querySelectorAll('.tab-progress');
+        let currentSlide = 0;
+        let slideInterval;
+        let progressInterval;
+        let startTime;
+        const duration = 6000;
 
-            function showSlide(index) {
-                // Reset all
-                slides.forEach((slide, i) => {
-                    slide.classList.remove('active');
-                    tabs[i].classList.remove('active');
-                    progressBars[i].style.width = '0%';
-                });
+        function startSlider() {
+            startTime = Date.now();
+            updateProgress();
+            slideInterval = setInterval(nextSlide, duration);
+        }
 
-                // Set active
-                slides[index].classList.add('active');
-                tabs[index].classList.add('active');
-                currentSlide = index;
-                
-                // Restart progress
-                startTime = Date.now();
-                updateProgress();
-                
-                // Reset interval
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, duration);
-            }
+        function updateProgress() {
+            if (progressInterval) clearInterval(progressInterval);
 
-            function nextSlide() {
-                let next = (currentSlide + 1) % totalSlides;
-                showSlide(next);
-            }
+            progressInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min((elapsed / duration) * 100, 100);
 
-            // Tab click handlers
-            tabs.forEach((tab, index) => {
-                tab.addEventListener('click', () => {
-                    showSlide(index);
-                });
-            });
-
-            // Initialize slider
-            startSlider();
-
-            // Navigation scroll effect
-            window.addEventListener('scroll', function () {
-                const nav = document.getElementById('mainNav');
-                if (window.scrollY > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
+                if (progressBars[currentSlide]) {
+                    progressBars[currentSlide].style.width = progress + '%';
                 }
+            }, 50);
+        }
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                tabs[i].classList.remove('active');
+                progressBars[i].style.width = '0%';
             });
 
-            // Scroll indicator click handler
-            document.getElementById('scrollToNextSection').addEventListener('click', () => {
-                console.log('Scroll clicked - Navigate to next section');
-                // You can add smooth scroll to next section here
+            slides[index].classList.add('active');
+            tabs[index].classList.add('active');
+            currentSlide = index;
+
+            startTime = Date.now();
+            updateProgress();
+
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, duration);
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                showSlide(index);
             });
+        });
+
+        startSlider();
+
+        document.getElementById('scrollToNextSection').addEventListener('click', () => {
+            const nextSection = document.querySelector('.magazine-promo');
+            if (nextSection) {
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        function showPage(pageId) {
+            console.log('Navigating to:', pageId);
+            window.scrollTo(0, 0);
+        }
+
+        // Side Panel Implementation
+        const mobileToggle = document.getElementById('mobileToggle');
+        const sidePanel = document.getElementById('sidePanel');
+        const sidePanelBackdrop = document.getElementById('sidePanelBackdrop');
+        const closeSidePanel = document.getElementById('closeSidePanel');
+
+        function openSidePanel() {
+            sidePanel.classList.add('active');
+            sidePanelBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidePanelFunc() {
+            sidePanel.classList.remove('active');
+            sidePanelBackdrop.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        mobileToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            openSidePanel();
+        });
+        closeSidePanel.addEventListener('click', closeSidePanelFunc);
+        sidePanelBackdrop.addEventListener('click', closeSidePanelFunc);
+
+        document.querySelectorAll('.side-panel-nav a').forEach(link => {
+            link.addEventListener('click', closeSidePanelFunc);
         });
     </script>
 
