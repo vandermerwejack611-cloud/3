@@ -857,6 +857,287 @@
                 padding: 0 25px;
             }
         }
+
+        /* ============================================
+           TWO-COLUMN: TEXT + VIDEO SECTION
+           ============================================ */
+
+        .split-content-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .split-content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .split-content-title {
+            font-size: clamp(28px, 3vw, 42px);
+            font-weight: 700;
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 25px;
+        }
+
+        .split-content-desc {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .video-thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--lime-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .play-button i {
+            color: var(--primary-green);
+            font-size: 28px;
+            margin-left: 4px;
+        }
+
+        .video-thumbnail:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: var(--primary-green);
+        }
+
+        .video-thumbnail:hover .play-button i {
+            color: var(--white);
+        }
+
+        .split-content-section .btn-line {
+            color: var(--primary-green);
+        }
+
+        .split-content-section .btn-line::after {
+            background: var(--lime-green);
+        }
+
+        .split-content-section .btn-line .arrow-icon {
+            color: var(--lime-green);
+        }
+
+        .split-content-section .btn-line:hover {
+            color: var(--primary-green);
+        }
+
+        .split-content-section .btn-line:hover::after {
+            background: var(--lime-green);
+        }
+
+        /* ============================================
+           TAB NAVIGATION SECTION
+           ============================================ */
+
+        .tab-nav-section {
+            padding: 25px 0;
+            background: var(--light-gray);
+        }
+
+        .tab-nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .tab-nav-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .tab-nav-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--medium-gray);
+        }
+
+        .tab-nav-tab {
+            padding: 15px 30px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            text-decoration: none;
+        }
+
+        .tab-nav-tab:hover {
+            color: var(--primary-green);
+        }
+
+        .tab-nav-tab.active {
+            color: var(--dark-text);
+            border-bottom-color: var(--primary-green);
+        }
+
+        /* ============================================
+           CONTENT AREA WITH CARDS
+           ============================================ */
+
+        .content-cards-section {
+            padding: 40px 0 60px;
+            background: var(--white);
+        }
+
+        .content-cards-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5vw;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .content-cards-title {
+            font-size: clamp(28px, 3vw, 38px);
+            font-weight: 700;
+            color: var(--dark-text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .content-cards-desc {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .impact-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+        }
+
+        .impact-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .impact-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        }
+
+        .card-title {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            .split-content-container,
+            .content-cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .split-content-container,
+            .content-cards-container {
+                padding: 0 5vw;
+            }
+
+            .tab-nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .tab-nav-tabs {
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .tab-nav-tab {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .content-cards-container {
+                gap: 40px;
+            }
+
+            .impact-card {
+                height: 200px;
+            }
+        }
     </style>
 <base target="_blank">
 </head>
@@ -917,8 +1198,8 @@
                     <i class="fas fa-search nav-icon"></i>
 
                     <div class="vamtam-has-theme-widget-styles elementor-element elementor-element-051dd67 elementor-view-stacked elementor-shape-circle elementor-widget elementor-widget-icon"
-                        data-id="051dd67" data-element_type="widget" data-element_type="widget"
-                        data-widget_type="icon.default">
+                        data-id="051dd67" data-element_type="widget" data_element_type="widget"
+                        data_widget_type="icon.default">
                         <div class="elementor-widget-container">
                             <div class="elementor-icon-wrapper">
                                 <a class="elementor-icon" href="javascript:void(0)" id="mobileToggle">
@@ -1103,6 +1384,91 @@
         </div>
     </section>
 
+    <!-- ============================================
+         TWO-COLUMN: TEXT + VIDEO SECTION
+         ============================================ -->
+    <section class="split-content-section">
+        <div class="split-content-container">
+            <div class="split-content-left">
+                <span class="section-label">Our Approach</span>
+                <h2 class="split-content-title">Driving Impact Through Strategic Corporate Social Investment</h2>
+                <p class="split-content-desc">Committed to dismantling inequality and driving measurable, noticeable change in South Africa over the next 25 years through transformative Corporate Social Investment.</p>
+                <a href="javascript:void(0)" onclick="showPage('about')" class="btn-line">
+                    Learn More
+                    <i class="fas fa-arrow-right arrow-icon"></i>
+                </a>
+            </div>
+            <div class="split-content-right">
+                <div class="video-thumbnail">
+                    <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg" alt="Video thumbnail">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TAB NAVIGATION SECTION
+         ============================================ -->
+    <section class="tab-nav-section">
+        <div class="tab-nav-container">
+            <span class="tab-nav-label">How we drive impact</span>
+            <div class="tab-nav-tabs">
+                <a href="javascript:void(0)" class="tab-nav-tab active" data-tab="indaba">CSI Indaba</a>
+                <a href="javascript:void(0)" class="tab-nav-tab" data-tab="magazine">CSI Magazine</a>
+                <a href="javascript:void(0)" class="tab-nav-tab" data-tab="insight">CSI Insight</a>
+                <a href="javascript:void(0)" class="tab-nav-tab" data-tab="legacy">CSI Legacy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTENT AREA WITH CARDS
+         ============================================ -->
+    <section class="content-cards-section">
+        <div class="content-cards-container">
+            <div class="content-cards-left">
+                <span class="section-label">ABOUT THE CENTRES</span>
+                <h2 class="content-cards-title">Community Investment Centres</h2>
+                <p class="content-cards-desc">Our network ofCommunity Investment Centres serves as hubs for educational resources, skills development, and community engagement programmes that empower underserved communities across the continent.</p>
+                <a href="javascript:void(0)" onclick="showPage('about')" class="btn btn-primary">
+                    View All Centres
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="content-cards-right">
+                <div class="cards-grid">
+                    <div class="impact-card">
+                        <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg" alt="Centre">
+                        <div class="card-overlay">
+                            <span class="card-title"> education</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-11-scaled.jpg" alt="Centre">
+                        <div class="card-overlay">
+                            <span class="card-title">Healthcare</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-12-scaled.jpg" alt="Centre">
+                        <div class="card-overlay">
+                            <span class="card-title">Skills Development</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <img src="https://simphiwemtetwa.africa/wp-content/uploads/2026/04/SIMPHIWE-MTETWA-1920-x-825-mm-10-scaled.jpg" alt="Centre">
+                        <div class="card-overlay">
+                            <span class="card-title">Community Outreach</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Placeholder Section for Scrolling -->
     <section style="height: 100vh; background: var(--light-gray); display: flex; align-items: center; justify-content: center;">
         <h2 style="font-family: var(--font-main); color: var(--dark-text); font-size: 2rem;">Content Section</h2>
@@ -1234,6 +1600,19 @@
 
         document.querySelectorAll('.side-panel-nav a').forEach(link => {
             link.addEventListener('click', closeSidePanelFunc);
+        });
+
+        // Tab Navigation
+        document.querySelectorAll('.tab-nav-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab-nav-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Video Thumbnail Click
+        document.querySelector('.video-thumbnail')?.addEventListener('click', function() {
+            alert('Video player would open here');
         });
     </script>
 
